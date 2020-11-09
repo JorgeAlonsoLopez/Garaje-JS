@@ -1,0 +1,1 @@
+import { Factura } from '../modelo/Factura.js';
