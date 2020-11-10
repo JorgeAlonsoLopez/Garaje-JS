@@ -17,17 +17,17 @@ function retirarVehiculoRegistrado(matricula, pin, dni){
 
 }
 
-/*
-//import * as readline from 'readline';
-//var readlineSync = require('readline-sync');
-import * as readline from 'readline';
 
- 
-// Wait for user's response.
-var userName = readline.question('May I have your name? ');
-console.log('Hi ' + userName + '!');
+import * as readline from 'readline-sync';
+let userName = readline.question('¿Tu nombre?');
+console.log(`Hola ${userName}`);
 
-*/
+
+import moment from 'moment';
+let fecha1=moment().format("DD/MM/YYYY hh/mm/ss");
+console.log(fecha1);
+
+
 
 
 

@@ -6,6 +6,7 @@ class Abono {
     precio;
     pin;
     plaza;
+    numVeces;
     constructor(cliente, fechaInicial, fechaFinal, meses, precio) {
         this.cliente=cliente;
         this.fechaInicial=fechaInicial;
@@ -28,6 +29,12 @@ class Abono {
     }
     set setFechaInicial(fechaInicial){
         this.fechaInicial=fechaInicial;
+    }
+    get getNumVeces(){
+        return this.numVeces;
+    }
+    set setNumVeces(numVeces){
+        this.numVeces=numVeces;
     }
     get getFechaFinal(){
         return this.fechaFinal;

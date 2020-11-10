@@ -14,5 +14,16 @@ function buscarAbonoDni(listadoAbonos, dni){
     return buscarAbonoPorDni(listadoAbonos, dni);
 }
 
+function consultarAnual(listadoAbonos){
+    let lista= new Array();
+    let cantidad;
+    listadoAbonos.forEach(element => {
+        if(element.getFechaFinal){
+            lista.push(element);
+        }
+    });
 
-export {anyadirAbono, eliminarAbono, buscarAbonoDni};
+}
+
+
+export {anyadirAbono, eliminarAbono, buscarAbonoDni, consultarAnual};
