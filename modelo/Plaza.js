@@ -3,6 +3,8 @@ class Plaza {
     tipo;
     ocupado;
     reservado;
+    costeMin;
+    vehiculo;
     constructor(nombre, tipo) {
         this.nombre = nombre;
         this.tipo = tipo;
@@ -29,6 +31,18 @@ class Plaza {
     }
     set setReservado(reservado) {
         this.reservado = reservado;
+    }
+    get getCosteMin() {
+        return this.costeMin;
+    }
+    set setCosteMin(costeMin) {
+        this.costeMin = costeMin;
+    }
+    get getVehiculo() {
+        return this.vehiculo;
+    }
+    set setVehiculo(vehiculo) {
+        this.vehiculo = vehiculo;
     }
 }
 

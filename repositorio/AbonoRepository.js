@@ -1,25 +1,25 @@
 import { Abono } from '../modelo/Abono.js';
 
-function anyadirlistadoAbonos(listadoAbonos, abono){
+function anyadirAbonos(listadoAbonos, abono){
     return listadoAbonos.push(abono);
 }
 
-function eliminarlistadoAbonos(listadoAbonos, abono){
+function eliminarAbonos(listadoAbonos, abono){
     const index = listadoAbonos.indexOf(abono);
-    if (index > -1) {
-        array.splice(index, 1);
-    }
-    return listadoAbonos.push(abono);
+        if (index > -1) {
+            listadoAbonos.splice(index, 1);
+        }
+    return listadoAbonos;
 }
 
-function buscarlistadoAbonos(listadoAbonos, dni){
+function buscarAbonoPorDni(listadoAbonos, dni){
     
-    elm = listadoAbonos.find(element => element.getCliente().getDni() == dni);
+    elm = listadoAbonos.find(element => element.getCliente.getDni === dni);
     if (elm != undefined) {
         return abono;
     }
 }
 
 
-export {anyadirlistadoAbonos, eliminarlistadoAbonos, buscarlistadoAbonos};
+export {anyadirAbonos, eliminarAbonos, buscarAbonoPorDni};
 

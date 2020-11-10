@@ -1,15 +1,15 @@
 import { Factura } from '../modelo/Factura.js';
 
-function anyadirListaFactura(lista, factura){
-    return lista.concat(factura);
+function anyadirListaFacturaR(lista, factura){
+    return lista.push(factura);
 }
 
-function buscarFact(lista, dni){    
+function buscarFactR(lista, dni){    
     listarPendientes(lista).forEach(element => {
-        if(element.getCliente().getDni() === dni){
+        if(element.getCliente().getDni === dni){
             return element;
         }
     });
 }
 
-export {anyadirListaFactura, buscarFact};
+export {anyadirListaFacturaR, buscarFactR};

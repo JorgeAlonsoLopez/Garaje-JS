@@ -1,26 +1,26 @@
 import { Ticket } from '../modelo/Ticket.js';
 
-function anyadirListaTicket(lista, ticket){
-    return lista.concat(ticket);
+function anyadirListaTicketR(lista, ticket){
+    return lista.push(ticket);
 }
 
 function listarPendientes(listaTick){
     let lista = new Array();
     listaTick.forEach(element => {
-        if(element.getCoste() == undefined){
-            lista.concat(element);
+        if(element.getCoste === 0){
+            lista.push(element);
         }
     });
     return lista;
 }
 
-function buscarTicket(listaTick, matricula){
+function buscarTicketR(listaTick, matricula){
     
     listarPendientes(listaTick).forEach(element => {
-        if(element.getMatricula() === matricula){
+        if(element.getMatricula === matricula){
             return element;
         }
     });
 }
 
-export {anyadirListaTicket, buscarTicket};
+export {anyadirListaTicketR, buscarTicketR};

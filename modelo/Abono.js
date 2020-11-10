@@ -4,18 +4,24 @@ class Abono {
     fechaFinal;
     meses;
     precio;
+    pin;
+    plaza;
     constructor(cliente, fechaInicial, fechaFinal, meses, precio) {
         this.cliente=cliente;
         this.fechaInicial=fechaInicial;
         this.fechaFinal=fechaFinal;
         this.meses=meses;
         this.precio=precio;
+        this.pin = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
     }
     get getCliente(){
         return this.cliente;
     }
     set setCliente(cliente){
         this.cliente=cliente;
+    }
+    get getPin(){
+        return this.pin;
     }
     get getFechaInicial(){
         return this.fechaInicial;
@@ -40,6 +46,12 @@ class Abono {
     }
     set setPrecio(precio){
         this.precio=precio;
+    }
+    get getPlaza(){
+        return this.plaza;
+    }
+    set setPlaza(plaza){
+        this.plaza=plaza;
     }
 }
 

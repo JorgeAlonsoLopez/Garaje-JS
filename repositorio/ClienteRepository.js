@@ -1,19 +1,19 @@
 import { Cliente } from '../modelo/Cliente.js';
 
-function anyadirlistadoClientes(listadoClientes, cliente){
+function anyadirlistadoClientesR(listadoClientes, cliente){
     return listadoClientes.push(cliente);
 }
 
-function buscarlistadoClientes(listadoClientes, dni){
+function buscarlistadoClientesR(listadoClientes, dni){
     
-    elm = listadoClientes.find(element => element.getDni() == dni);
+    elm = listadoClientes.find(element => element.getDni === dni);
     if (elm != undefined) {
         return cliente;
     }
 }
 
 
-export {anyadirlistadoClientes, buscarlistadoClientes};
+export {anyadirlistadoClientesR, buscarlistadoClientesR};
 
 
 

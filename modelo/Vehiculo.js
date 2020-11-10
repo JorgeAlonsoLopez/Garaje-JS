@@ -1,5 +1,5 @@
 class Vehiculo {
-
+    duenyo;
     matricula;
     constructor(matricula) {
         this.matricula=matricula;
@@ -9,6 +9,12 @@ class Vehiculo {
     }
     set setMatricula(matricula){
         this.matricula=matricula;
+    }
+    get getDuenyo(){
+        return this.duenyo;
+    }
+    set setDuenyo(duenyo){
+        this.duenyo=duenyo;
     }
 }
 

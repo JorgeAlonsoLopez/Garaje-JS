@@ -6,7 +6,7 @@ class Cliente{
     email;
     abono;
     vehiculo;
-    plaza;
+    
     constructor(dni, nombre, apellidos, email, numTarjeta, vehiculo) {
         this.dni=dni;
         this.nombre=nombre;
@@ -57,12 +57,7 @@ class Cliente{
     set setVehiculo(vehiculo){
         this.vehiculo=vehiculo;
     }
-    get getPlaza(){
-        return this.plaza;
-    }
-    set setPlaza(plaza){
-        this.plaza=plaza;
-    }
+    
     
 }
 
