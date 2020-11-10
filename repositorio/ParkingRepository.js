@@ -1,4 +1,5 @@
 import { Parking } from '../modelo/Parking.js';
+import { Plaza } from '../modelo/Plaza.js';
 
 function cargarListadoParkingR(){
     let parking = new Parking();

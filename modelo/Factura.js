@@ -11,19 +11,19 @@ class Factura {
     get getFecha(){
         return this.fecha;
     }
-    set setFecha(fecha){
+     setFecha(fecha){
         this.fecha=fecha;
     }
     get getCliente(){
         return this.cliente;
     }
-    set setCliente(cliente){
+     setCliente(cliente){
         this.cliente=cliente;
     }
     get getCoste(){
         return this.coste;
     }
-    set setCoste(coste){
+     setCoste(coste){
         this.coste=coste;
     }
 }

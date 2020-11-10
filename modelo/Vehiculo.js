@@ -7,13 +7,13 @@ class Vehiculo {
     get getMatricula(){
         return this.matricula;
     }
-    set setMatricula(matricula){
+     setMatricula(matricula){
         this.matricula=matricula;
     }
     get getDuenyo(){
         return this.duenyo;
     }
-    set setDuenyo(duenyo){
+     setDuenyo(duenyo){
         this.duenyo=duenyo;
     }
 }

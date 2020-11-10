@@ -18,43 +18,43 @@ class Cliente{
     get getDni(){
         return this.dni;
     }
-    set setDni(dni){
+     setDni(dni){
         this.dni=dni;
     }
     get getNombre(){
         return this.nombre;
     }
-    set setNombre(nombre){
+     setNombre(nombre){
         this.nombre=nombre;
     }
     get getApellidos(){
         return this.apellidos;
     }
-    set setApellidos(apellidos){
+     setApellidos(apellidos){
         this.apellidos=apellidos;
     }
     get getNumTarjeta(){
         return this.numTarjeta;
     }
-    set setNumTarjeta(numTarjeta){
+     setNumTarjeta(numTarjeta){
         this.numTarjeta=numTarjeta;
     }
     get getEmail(){
         return this.email;
     }
-    set setEmail(email){
+     setEmail(email){
         this.email=email;
     }
     get getAbono(){
         return this.abono;
     }
-    set setAbono(abono){
+     setAbono(abono){
         this.abono=abono;
     }
     get getVehiculo(){
         return this.vehiculo;
     }
-    set setVehiculo(vehiculo){
+     setVehiculo(vehiculo){
         this.vehiculo=vehiculo;
     }
     

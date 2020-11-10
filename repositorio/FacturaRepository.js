@@ -5,11 +5,23 @@ function anyadirListaFacturaR(lista, factura){
 }
 
 function buscarFactR(lista, dni){    
-    listarPendientes(lista).forEach(element => {
-        if(element.getCliente().getDni === dni){
-            return element;
+    let listaFact = new Array();
+    lista.forEach(element => {
+        if(element.getCliente.getDni === dni){
+            listaFact.push(element);
         }
     });
+    return listaFact;
 }
 
-export {anyadirListaFacturaR, buscarFactR};
+function buscarFactAnyoR(lista, anyo){
+    let listaFact = new Array();
+    lista.forEach(element => {
+        if(moment(anyo.toString()+'-01-01').isBefore(element.getFecha) && moment((anyo+1).toString()+'-01-01').isAfter(element.getFecha)){
+            listaFact.push(element);
+        }
+    });
+    return listaFact;
+}
+
+export {anyadirListaFacturaR, buscarFactR, buscarFactAnyoR};

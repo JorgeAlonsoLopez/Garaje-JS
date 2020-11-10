@@ -6,7 +6,6 @@ class Abono {
     precio;
     pin;
     plaza;
-    numVeces;
     constructor(cliente, fechaInicial, fechaFinal, meses, precio) {
         this.cliente=cliente;
         this.fechaInicial=fechaInicial;
@@ -18,7 +17,7 @@ class Abono {
     get getCliente(){
         return this.cliente;
     }
-    set setCliente(cliente){
+     setCliente(cliente){
         this.cliente=cliente;
     }
     get getPin(){
@@ -27,37 +26,31 @@ class Abono {
     get getFechaInicial(){
         return this.fechaInicial;
     }
-    set setFechaInicial(fechaInicial){
+     setFechaInicial(fechaInicial){
         this.fechaInicial=fechaInicial;
-    }
-    get getNumVeces(){
-        return this.numVeces;
-    }
-    set setNumVeces(numVeces){
-        this.numVeces=numVeces;
     }
     get getFechaFinal(){
         return this.fechaFinal;
     }
-    set setFechaFinal(fechaFinal){
+     setFechaFinal(fechaFinal){
         this.fechaFinal=fechaFinal;
     }
     get getMeses(){
         return this.meses;
     }
-    set setMeses(meses){
+     setMeses(meses){
         this.meses=meses;
     }
     get getPrecio(){
         return this.precio;
     }
-    set setPrecio(precio){
+     setPrecio(precio){
         this.precio=precio;
     }
     get getPlaza(){
         return this.plaza;
     }
-    set setPlaza(plaza){
+     setPlaza(plaza){
         this.plaza=plaza;
     }
 }

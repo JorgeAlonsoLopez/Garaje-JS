@@ -19,13 +19,13 @@ class Parking {
     get getplazasCarabana(){
         return this.plazasCarabana;
     }
-    set setPlazasCarabana(plazasCarabana) {
+     setPlazasCarabana(plazasCarabana) {
         this.plazasCarabana = plazasCarabana;
     }
-    set setPlazasMotos(plazasMotos) {
+     setPlazasMotos(plazasMotos) {
         this.plazasMotos = plazasMotos;
     }
-    set setPlazasTurismo(plazasTurismo) {
+     setPlazasTurismo(plazasTurismo) {
         this.plazasTurismo = plazasTurismo;
     }
 }

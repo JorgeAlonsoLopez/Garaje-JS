@@ -23,25 +23,25 @@ class Plaza {
     get getReservado() {
         return this.reservado;
     }
-    set setTipo(tipo) {
+     setTipo(tipo) {
         this.tipo = tipo;
     }
-    set setOcupado(ocupado) {
+     setOcupado(ocupado) {
         this.ocupado = ocupado;
     }
-    set setReservado(reservado) {
+     setReservado(reservado) {
         this.reservado = reservado;
     }
     get getCosteMin() {
         return this.costeMin;
     }
-    set setCosteMin(costeMin) {
+     setCosteMin(costeMin) {
         this.costeMin = costeMin;
     }
     get getVehiculo() {
         return this.vehiculo;
     }
-    set setVehiculo(vehiculo) {
+     setVehiculo(vehiculo) {
         this.vehiculo = vehiculo;
     }
 }

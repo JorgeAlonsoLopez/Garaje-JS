@@ -15,37 +15,37 @@ class Ticket {
     get getFechaEntrada(){
         return this.fechaEntrada;
     }
-    set setFechaEntrada(fechaEntrada){
+     setFechaEntrada(fechaEntrada){
         this.fechaEntrada=fechaEntrada;
     }
     get getFechaSalida(){
         return this.fechaSalida;
     }
-    set setFechaSalida(fechaSalida){
+     setFechaSalida(fechaSalida){
         this.fechaSalida=fechaSalida;
     }
     get getMatricula(){
         return this.matricula;
     }
-    set setMatricula(matricula){
+     setMatricula(matricula){
         this.matricula=matricula;
     }
     get getPlaza(){
         return this.plaza;
     }
-    set setPlaza(plaza){
+     setPlaza(plaza){
         this.plaza=plaza;
     }
     get getCoste(){
         return this.coste;
     }
-    set setCoste(coste){
+     setCoste(coste){
         this.coste=coste;
     }
     get getPin(){
         return this.pin;
     }
-    set setPin(pin){
+     setPin(pin){
         this.pin=pin;
     }
 }
