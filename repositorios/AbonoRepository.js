@@ -14,9 +14,9 @@ function eliminarAbonos(listadoAbonos, abono){
 
 function buscarAbonoPorDni(listadoAbonos, dni){
     
-    elm = listadoAbonos.find(element => element.getCliente.getDni == dni);
+    let elm = listadoAbonos.find(element => element.getCliente.getDni == dni);
     if (elm != undefined) {
-        return abono;
+        return elm;
     }
 }
 

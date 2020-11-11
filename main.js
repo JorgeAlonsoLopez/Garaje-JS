@@ -17,6 +17,17 @@ let salir=false;
 let tickets=new Array();
 let parking=new Parking();
 let listaAbonos=[];
+
+let vehi=new Vehiculo("pepe");
+let clie=new Cliente("manolo","cpp","pp","christianpayo32@gmail.com","932939",vehi);
+let max = 999999;
+let min = 100000;
+let abo=new Abono(clie,moment(),1,25);
+abo.setPlaza(parking.getPlazasTurismo[0]);
+parking.getPlazasTurismo[0].setReservado(true);
+listaAbonos.push(abo);
+clientes.push(clie);
+console.log(abo);
 do {
     mostrarPlazasDisponibles(parking);
     console.log("------------------------------------");
@@ -36,6 +47,21 @@ do {
             let nombrePlaza=readline.question('¿Cuál es el nombre de la plaza?');
             retirarVehiculo(matriculaR,nombrePlaza,parking,tickets);
             break;
+        case 3:
+            let matriculaAC=readline.question('¿Cuál es la matrícula de su vehículo?');
+            let dniA=readline.question('Introduzca su dni: ');
+            let pinA=readline.question('Introduzca el pin de acceso: ');
+            depositarVehiculoReserv(matriculaAC,dniA,clientes,listaAbonos,pinA);
+            break;
+        case 4:
+            let matriculaRC=readline.question('¿Cuál es la matrícula de su vehículo?');
+            let dniR=readline.question('Introduzca su dni: ');
+            let pinR=readline.question('Introduzca el pin de acceso: ');
+            retirarVehiculoReserv(matriculaRC,dniR,clientes,listaAbonos,pinR);
+            break;
+        case 5:
+            console.log(parking);
+            break;
         default:
             salir=true;
             break;
@@ -43,7 +69,3 @@ do {
 } while (!salir);
 
 console.log("bye");
-
-
-
-

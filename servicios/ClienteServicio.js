@@ -74,7 +74,7 @@ function retirarVehiculo(matricula, nombrePlaza, parking, listaTick) {
 function depositarVehiculoReserv(matricula, dni, listadoClientes, listadoAbonos, pin) {
 
     if (matricula == buscarlistadoClientes(listadoClientes, dni).getVehiculo.getMatricula) {
-        if (pin === buscarAbonoDni(listadoAbonos, dni).getPin) {
+        if (pin == buscarAbonoDni(listadoAbonos, dni).getPin) {
             ocuparPlaza(buscarAbonoDni(listadoAbonos, dni).getPlaza);
             console.log("El vehículo se ha aparcado con éxito.");
             console.log("Gracias por usar nuestros servicios.");
@@ -85,7 +85,7 @@ function depositarVehiculoReserv(matricula, dni, listadoClientes, listadoAbonos,
 
 function retirarVehiculoReserv(matricula, dni, listadoClientes, listadoAbonos, pin) {
     if (matricula == buscarlistadoClientes(listadoClientes, dni).getVehiculo.getMatricula) {
-        if (pin === buscarAbonoDni(listadoAbonos, dni).getPin) {
+        if (pin == buscarAbonoDni(listadoAbonos, dni).getPin) {
             liberaPlaza(buscarAbonoDni(listadoAbonos, dni).getPlaza);
             console.log("El vehículo se ha retirado con éxito.");
             console.log("Gracias por usar nuestros servicios.");

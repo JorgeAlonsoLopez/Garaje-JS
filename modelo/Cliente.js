@@ -4,7 +4,6 @@ export class Cliente{
     apellidos;
     numTarjeta;
     email;
-    abono;
     vehiculo;
     
     constructor(dni, nombre, apellidos, email, numTarjeta, vehiculo) {
@@ -44,12 +43,6 @@ export class Cliente{
     }
      setEmail(email){
         this.email=email;
-    }
-    get getAbono(){
-        return this.abono;
-    }
-     setAbono(abono){
-        this.abono=abono;
     }
     get getVehiculo(){
         return this.vehiculo;
