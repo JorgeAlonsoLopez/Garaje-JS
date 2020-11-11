@@ -1,34 +1,32 @@
 import { Plaza } from '../modelo/Plaza.js';
-import {cargarListadoTotalPlazasR, buscaPlazaR, listarPorTipoR} from '../repositorio/PlazaRepository.js';
+import {cargarListadoTotalPlazasR, buscaPlazaR, listarPorTipoR} from '../repositorios/PlazaRepository.js';
 
 function contadorPlazasLibres(lista){
     let num = 0;
     lista.forEach(element => {
         if(element.getOcupado == false && element.getReservado == false){
-            contador +=1;
+            num +=1;
         }
     });
 
     return num;
 }
 
-function contadorPlazasLibresTipo(tipo){
-    
-    let lista = cargarListadoTotalPlazas();
-    let num;
-    
+function contadorPlazasLibresTipo(tipo,parking){
+    let lista = cargarListadoTotalPlazas(parking);
+    let num=0;
     lista.forEach(element => {
         if(element.getOcupado == false && element.getReservado == false && element.getTipo===tipo){
-            contador +=1;
+            num +=1;
         }
     });
 
     return num;
 }
 
-function darPlazasLibresTipo(tipo){
+function darPlazasLibresTipo(tipo,parking){
     
-    let lista = cargarListadoTotalPlazas();
+    let lista = cargarListadoTotalPlazas(parking);
     let num;
     let encontrado = false;
     let plaza;
@@ -42,9 +40,9 @@ function darPlazasLibresTipo(tipo){
     return plaza;
 }
 
-function buscarPlazaPorMatricula(matricula){
+function buscarPlazaPorMatricula(matricula,parking){
     
-    let lista = cargarListadoTotalPlazas();
+    let lista = cargarListadoTotalPlazas(parking);
     let num;
     
     lista.forEach(element => {
@@ -65,12 +63,12 @@ function liberaPlaza(plaza){
 }
 
 
-function cargarListadoTotalPlazas(){
-    return cargarListadoTotalPlazasR();
+function cargarListadoTotalPlazas(parking){
+    return cargarListadoTotalPlazasR(parking);
 }
 
-function buscaPlaza(nombre){
-    return buscaPlazaR(nombre);
+function buscaPlaza(nombre,parking){
+    return buscaPlazaR(nombre,parking);
 }
 
 function listarPorTipo(tipo){    

@@ -1,4 +1,4 @@
-class Cliente{
+export class Cliente{
     dni;
     nombre;
     apellidos;
@@ -60,6 +60,3 @@ class Cliente{
     
     
 }
-
-
-export {Cliente};

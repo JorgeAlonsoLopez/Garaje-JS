@@ -1,4 +1,4 @@
-class Abono {
+export class Abono {
     cliente;
     fechaInicial;
     fechaFinal;
@@ -54,5 +54,3 @@ class Abono {
         this.plaza=plaza;
     }
 }
-
-export {Abono};

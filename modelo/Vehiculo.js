@@ -1,5 +1,5 @@
-class Vehiculo {
-    duenyo;
+export class Vehiculo {
+    
     matricula;
     constructor(matricula) {
         this.matricula=matricula;
@@ -10,13 +10,4 @@ class Vehiculo {
      setMatricula(matricula){
         this.matricula=matricula;
     }
-    get getDuenyo(){
-        return this.duenyo;
-    }
-     setDuenyo(duenyo){
-        this.duenyo=duenyo;
-    }
 }
-
-
-export {Vehiculo};

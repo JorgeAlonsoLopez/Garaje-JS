@@ -1,15 +1,16 @@
-class Plaza {
+export class Plaza {
     nombre;
     tipo;
     ocupado;
     reservado;
     costeMin;
     vehiculo;
-    constructor(nombre, tipo) {
+    constructor(nombre, tipo, coste) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.ocupado = false;
         this.reservado = false;
+        this.costeMin = coste;
     }
     get getNombre() {
         return this.nombre;
@@ -45,5 +46,3 @@ class Plaza {
         this.vehiculo = vehiculo;
     }
 }
-
-export {Plaza};

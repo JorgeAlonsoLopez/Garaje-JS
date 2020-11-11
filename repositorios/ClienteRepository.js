@@ -6,7 +6,7 @@ function anyadirlistadoClientesR(listadoClientes, cliente){
 
 function buscarlistadoClientesR(listadoClientes, dni){
     
-    elm = listadoClientes.find(element => element.getDni === dni);
+    elm = listadoClientes.find(element => element.getDni == dni);
     if (elm != undefined) {
         return cliente;
     }

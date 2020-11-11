@@ -1,19 +1,19 @@
 import { Factura } from '../modelo/Factura.js';
-import {anyadirListaFacturaR, buscarFactR, buscarFactAnyoR} from '../repositorio/FacturaRepository.js';
+import {anyadirListaFacturaR, buscarFactR, buscarFactAnyoR} from '../repositorios/FacturaRepository.js';
 
 function anyadirListaFactura(lista, factura){
     return anyadirListaFacturaR(lista, factura);
 }
 
-function buscarFact(lista, dni){    
+function buscarFact(lista, dni){
     return buscarFactR(lista, dni);
 }
 
-function buscarFactAnyo(lista, anyo){    
+function buscarFactAno(lista, anyo){
     return buscarFactAnyoR(lista, anyo);
 }
 
-function buscarFactAnyo(lista, anyo){    
+function buscarFactAnyo(lista, anyo){
     let listaFact = buscarFactAnyo(lista, anyo);
     let contd = 0;
     let recaudac = 0;
@@ -22,7 +22,7 @@ function buscarFactAnyo(lista, anyo){
         recaudac += element.getcoste;
     });
     console.log("Ha habido en el año seleccionado (" + anyo + ") un total de " + contd + "cobros por un valor de " + recaudac + "€.");
-    
+
 }
 
 

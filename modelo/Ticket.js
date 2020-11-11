@@ -1,5 +1,4 @@
-class Ticket {
-
+export class Ticket {
     fechaEntrada;
     fechaSalida;
     matricula;
@@ -8,7 +7,7 @@ class Ticket {
     pin;
     constructor(fechaEntrada, matricula, plaza) {
         this.fechaEntrada=fechaEntrada;
-        this.nommatriculabre=matricula;
+        this.matricula=matricula;
         this.plaza=plaza;
         this.coste = 0;
     }
@@ -49,5 +48,3 @@ class Ticket {
         this.pin=pin;
     }
 }
-
-export {Ticket};

@@ -1,34 +1,48 @@
-class Parking {
+import * as Plaza from "./Plaza.js";
+export class Parking {
     plazasTurismo;
     plazasMotos;
-    plazasCarabanas;
+    plazasCaravanas;
     constructor() {
+        let cadena = ["Turismo", "Moto", "Caravana"];
+        let precio = [0.12, 0.08, 0.45];
         let plazasTurismos = [];
         let plazasMotos = [];
-        let plazasCarabana = [];
+        let plazasCaravana = [];
+        for (let i = 0; i < cadena.length; i++) {
+            for (let j = 1; j < 16; j++) {
+                if (i == 0) {
+                    let plazai = new Plaza.Plaza(cadena[i].charAt() + j, cadena[i], precio[i]);
+                    plazasTurismos.push(plazai);
+                } else if (i == 1) {
+                    let plazai = new Plaza.Plaza(cadena[i].charAt() + j, cadena[i], precio[i]);
+                    plazasMotos.push(plazai);
+                } else {
+                    let plazai = new Plaza.Plaza(cadena[i].charAt() + j, cadena[i], precio[i]);
+                    plazasCaravana.push(plazai);
+                }
+            }
+        }
         this.plazasTurismo=plazasTurismos;
         this.plazasMotos=plazasMotos;
-        this.plazasCarabanas=plazasCarabana;
+        this.plazasCaravanas=plazasCaravana;
     }
-    get getplazasTurismo(){
+    get getPlazasTurismo(){
         return this.plazasTurismo;
     }
-    get getplazasMotos(){
+    get getPlazasMotos(){
         return this.plazasMotos;
     }
-    get getplazasCarabana(){
-        return this.plazasCarabana;
+    get getPlazasCaravana(){
+        return this.plazasCaravanas;
     }
-     setPlazasCarabana(plazasCarabana) {
-        this.plazasCarabana = plazasCarabana;
+    setPlazasCaravana(plazasCaravana){
+        this.plazasCaravanas=plazasCaravana;
     }
-     setPlazasMotos(plazasMotos) {
-        this.plazasMotos = plazasMotos;
+    setPlazasTurismo(plazasTurismo){
+        this.plazasTurismo=plazasTurismo;
     }
-     setPlazasTurismo(plazasTurismo) {
-        this.plazasTurismo = plazasTurismo;
+    setPlazasMotos(plazasMotos){
+        this.plazasMotos=plazasMotos;
     }
 }
-
-
-export {Parking};

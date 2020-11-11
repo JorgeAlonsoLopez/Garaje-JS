@@ -15,12 +15,17 @@ function listarPendientes(listaTick){
 }
 
 function buscarTicketR(listaTick, matricula){
-    
+    let devolver;
     listarPendientes(listaTick).forEach(element => {
         if(element.getMatricula === matricula){
-            return element;
+            console.log("pepe");
+            devolver= element;
         }
     });
+    return devolver;
 }
 
-export {anyadirListaTicketR, buscarTicketR};
+function cogerTodosLosTickets(lista){
+    return lista;
+}
+export {anyadirListaTicketR, buscarTicketR,cogerTodosLosTickets};

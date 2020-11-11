@@ -4,7 +4,7 @@ function anyadirListaFacturaR(lista, factura){
     return lista.push(factura);
 }
 
-function buscarFactR(lista, dni){    
+function buscarFactR(lista, dni){
     let listaFact = new Array();
     lista.forEach(element => {
         if(element.getCliente.getDni === dni){
