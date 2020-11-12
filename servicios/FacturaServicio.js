@@ -19,10 +19,9 @@ function buscarFactAnyo(lista, anyo){
     let recaudac = 0;
     listaFact.forEach(element => {
         contd += 1;
-        recaudac += element.getcoste;
+        recaudac += element.getCoste;
     });
-    console.log("Ha habido en el año seleccionado (" + anyo + "), un total de " + contd + "cobros de abonos por un valor de " + recaudac + "€.");
-
+    console.log("Ha habido en el año seleccionado (" + anyo + "), un total de " + contd + " cobros de abonos por un valor de " + recaudac + "€.");
 }
 
 

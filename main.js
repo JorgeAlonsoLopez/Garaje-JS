@@ -10,7 +10,7 @@ import {
     darPlazasLibresTipo, ocuparPlaza, liberaPlaza
 } from './servicios/PlazaServicio.js';
 import { mostrarPlazasDisponibles, estadoParking, imprimirMapa } from './servicios/ParkingServicio.js';
-import { anyadirListaFactura, buscarFact } from './servicios/FacturaServicio.js';
+import { anyadirListaFactura, buscarFact, buscarFactAnyo } from './servicios/FacturaServicio.js';
 import { anyadirlistadoClientes, buscarlistadoClientes, depositarVehiculo, retirarVehiculo, depositarVehiculoReserv, retirarVehiculoReserv, modificarCliente } from './servicios/ClienteServicio.js';
 import { anyadirAbono, eliminarAbono, buscarAbonoDni, consultarAnual, caducidadAbono, caducidadBonosProximosDias,modificarAbono,borrarAbono} from './servicios/AbonoServicio.js';
 import * as readline from 'readline-sync';
@@ -100,7 +100,8 @@ do {
                         console.log("La facturación es: "+facturacion(tickets, fecha1, fecha2)+"€");
                         break;
                     case 3:
-                        ((consultarAnual(listaAbonos, 2020)));
+                        //((consultarAnual(listaAbonos, 2020)));
+                        ((buscarFactAnyo(listaFacturas, 2020)));
                         break;
                     case 4:
                         do {

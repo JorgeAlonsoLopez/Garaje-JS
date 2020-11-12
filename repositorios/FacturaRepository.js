@@ -1,4 +1,5 @@
 import { Factura } from '../modelo/Factura.js';
+import moment from 'moment';
 
 function anyadirListaFacturaR(lista, factura){
     return lista.push(factura);
@@ -17,7 +18,9 @@ function buscarFactR(lista, dni){
 function buscarFactAnyoR(lista, anyo){
     let listaFact = new Array();
     lista.forEach(element => {
-        if(moment(anyo.toString()+'-01-01').isBefore(element.getFecha) && moment((anyo+1).toString()+'-01-01').isAfter(element.getFecha)){
+        let inicio = moment([anyo,1,1]);
+        let final = moment([anyo+1,1,1]);
+        if(element.getFecha.isAfter(inicio) && element.getFecha.isBefore(final)){
             listaFact.push(element);
         }
     });
