@@ -18,7 +18,6 @@ function buscarTicketR(listaTick, matricula){
     let devolver;
     listarPendientes(listaTick).forEach(element => {
         if(element.getMatricula === matricula){
-            console.log("pepe");
             devolver= element;
         }
     });

@@ -1,6 +1,5 @@
 import { Plaza } from '../modelo/Plaza.js';
 import {cargarListadoTotalPlazasR, buscaPlazaR, listarPorTipoR} from '../repositorios/PlazaRepository.js';
-
 function contadorPlazasLibres(lista){
     let num = 0;
     lista.forEach(element => {
@@ -27,7 +26,6 @@ function contadorPlazasLibresTipo(tipo,parking){
 function darPlazasLibresTipo(tipo,parking){
     
     let lista = cargarListadoTotalPlazas(parking);
-    let num;
     let encontrado = false;
     let plaza;
     lista.forEach(element => {
@@ -39,7 +37,7 @@ function darPlazasLibresTipo(tipo,parking){
 
     return plaza;
 }
-
+/*
 function buscarPlazaPorMatricula(matricula,parking){
     
     let lista = cargarListadoTotalPlazas(parking);
@@ -52,7 +50,7 @@ function buscarPlazaPorMatricula(matricula,parking){
     });
 
     return num;
-}
+}*/
 
 function ocuparPlaza(plaza){
     plaza.setOcupado(true);

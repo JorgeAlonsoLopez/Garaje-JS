@@ -20,9 +20,9 @@ function cargarListadoTotalPlazasR(parking){
 function buscaPlazaR(nombre,parking){
     let lista = new Array();
     lista = cargarListadoTotalPlazasR(parking);
-    index = lista.find(element => element.getNombre === nombre);
+    let index = lista.find(element => element.getNombre === nombre);
     if (index != undefined) {
-        return cliente;
+        return index;
     }
 }
 

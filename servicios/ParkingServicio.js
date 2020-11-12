@@ -22,43 +22,43 @@ function estadoParking(Parking,opcion){
     if(opcion==1){
         Parking.getPlazasTurismo.forEach(element => {
             if(!element.getOcupado && !element.getReservado){
-                parking.set(element.getId,"Libre");
+                parking.set(element.getNombre,"Libre");
             }else if(element.getOcupado && !element.getReservado){
-                parking.set(element.getId,"Ocupada");
+                parking.set(element.getNombre,"Ocupada");
             }else if(!element.getOcupado && element.getReservado){
-                parking.set(element.getId,"Abono libre");
+                parking.set(element.getNombre,"Abono libre");
             }else if(element.getOcupado && element.getReservado){
-                parking.set(element.getId,"Abono reservado");
+                parking.set(element.getNombre,"Abono reservado");
             }
         });
     }else if(opcion==2){
-        Parking.getplazasMotos.forEach(element => {
+        Parking.getPlazasMotos.forEach(element => {
             if(!element.getOcupado && !element.getReservado){
-                parking.set(element.getId,"Libre");
+                parking.set(element.getNombre,"Libre");
             }else if(element.getOcupado && !element.getReservado){
-                parking.set(element.getId,"Ocupada");
+                parking.set(element.getNombre,"Ocupada");
             }else if(!element.getOcupado && element.getReservado){
-                parking.set(element.getId,"Abono libre");
+                parking.set(element.getNombre,"Abono libre");
             }else if(element.getOcupado && element.getReservado){
-                parking.set(element.getId,"Abono reservado");
+                parking.set(element.getNombre,"Abono reservado");
             }
         });
     }else{
-        Parking.getplazasCaravana.forEach(element => {
+        Parking.getPlazasCaravana.forEach(element => {
             if(!element.getOcupado && !element.getReservado){
-                parking.set(element.getId,"Libre");
+                parking.set(element.getNombre,"Libre");
             }else if(element.getOcupado && !element.getReservado){
-                parking.set(element.getId,"Ocupada");
+                parking.set(element.getNombre,"Ocupada");
             }else if(!element.getOcupado && element.getReservado){
-                parking.set(element.getId,"Abono libre");
+                parking.set(element.getNombre,"Abono libre");
             }else if(element.getOcupado && element.getReservado){
-                parking.set(element.getId,"Abono reservado");
+                parking.set(element.getNombre,"Abono reservado");
             }
         });
     }
-    
     return parking;
 }
+
 
 function imprimirMapa(map){
     for (let [key, value] of map) {

@@ -11,19 +11,17 @@ function buscarTicket(listaTick, matricula){
     return buscarTicketR(listaTick, matricula);
 }
 
-function pintarTick(tick){
 
-}
-
-function pagarTicket(nombrePlaza, parking, ticket){
+function pagarTicket(nombrePlaza,parking,ticket){
 
     let correcto = false;
     let plaza;
-    let actual=moment();
-    let precio;
-    plaza = buscaPlaza(nombrePlaza, parking);
     let min;
-    min= ((actual-ticket.getFechaEntrada)/60*1000).toFixed(0);
+    let precio;
+    plaza = buscaPlaza(nombrePlaza,parking);
+    let actual=moment();
+    min=((actual-ticket.getFechaEntrada)/(60*1000)).toFixed(0);
+    console.log(min);
     precio = min*plaza.getCosteMin;
     while(!correcto){
         console.log("El precio a pagar son: " + precio + "€");
@@ -33,7 +31,7 @@ function pagarTicket(nombrePlaza, parking, ticket){
             ticket.setCoste(precio);
             console.log("El cambio es: " + (dinero - precio) + "€");
         }else{
-            console.log("La cantidad es menor a la esperada.");
+            console.log("La cantidad es menor a la esperada");
         }
     }
 }
@@ -41,8 +39,7 @@ function facturacion(listaTickets,fecha1,fecha2){
     let aux=[];
     let total=0;
     listaTickets.forEach(element =>{
-        console.log(element.getFechaEntrada);
-        if(element.getFechaEntrada>=fecha1 && element.getFechaEntrada<fecha2){
+        if(moment(element.getFechaEntrada).isAfter(fecha1) && moment(element.getFechaEntrada).isBefore(fecha2)){
             aux.push(element);
         }
     });
@@ -52,6 +49,20 @@ function facturacion(listaTickets,fecha1,fecha2){
     return total;
 }
 
+function pintarTick(tick){
+    console.log("*********************************");
+    console.log("Matrícula del vehículo: " + tick.getMatricula);
+    console.log("Plaza del parking: " + tick.getPlaza);
+    console.log("Fecha y hora de estacionamiento: " + tick.getFechaEntrada.format("DD/MM/YYYY HH:mm:ss"));
+    console.log("PIN: " + tick.getPin);
+    if(tick.getCoste != 0){
+        console.log("Coste: " + tick.getCoste);
+    }
+    if(tick.getFechaSalida != undefined){
+        console.log("Fecha y hora de salida: " + tick.getFechaSalida.format("DD/MM/YYYY HH:mm:ss"));
+    }
+    console.log("**********************************");
+}
 export {anyadirListaTicket, buscarTicket, pintarTick,facturacion,pagarTicket};
 
 

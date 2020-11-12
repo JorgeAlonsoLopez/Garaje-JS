@@ -14,14 +14,14 @@ function buscarFactAno(lista, anyo){
 }
 
 function buscarFactAnyo(lista, anyo){
-    let listaFact = buscarFactAnyo(lista, anyo);
+    let listaFact = buscarFactAno(lista, anyo);
     let contd = 0;
     let recaudac = 0;
     listaFact.forEach(element => {
         contd += 1;
         recaudac += element.getcoste;
     });
-    console.log("Ha habido en el año seleccionado (" + anyo + ") un total de " + contd + "cobros por un valor de " + recaudac + "€.");
+    console.log("Ha habido en el año seleccionado (" + anyo + "), un total de " + contd + "cobros de abonos por un valor de " + recaudac + "€.");
 
 }
 
