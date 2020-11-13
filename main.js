@@ -10,7 +10,7 @@ import {cargarListadoTotalPlazas, buscaPlaza, listarPorTipo, contadorPlazasLibre
 import { mostrarPlazasDisponibles, estadoParking, imprimirMapa } from './servicios/ParkingServicio.js';
 import { anyadirListaFactura, buscarFact, buscarFactAnyo } from './servicios/FacturaServicio.js';
 import { anyadirlistadoClientes, buscarlistadoClientes, depositarVehiculo, retirarVehiculo, depositarVehiculoReserv, retirarVehiculoReserv, modificarCliente } from './servicios/ClienteServicio.js';
-import { anyadirAbono, eliminarAbono, buscarAbonoDni, consultarAnual, caducidadAbono, caducidadBonosProximosDias,modificarAbono,borrarAbono} from './servicios/AbonoServicio.js';
+import { anyadirAbono, eliminarAbono, buscarAbonoDni, consultarAnual, caducidadAbono, caducidadBonosProximosDias,modificarAbono,borrarAbono,listarCaducidadAbono} from './servicios/AbonoServicio.js';
 import * as readline from 'readline-sync';
 import moment from 'moment';
 import { Factura } from './modelo/Factura.js';
@@ -67,7 +67,7 @@ do {
         case 5:
             do {
                 var readlineSync = readline,
-                    opciones = ["Estado del Parking", "Facturación", "Consulta abonados", "Abonos", "Caducidad Abonados"],
+                    opciones = ["Estado del Parking", "Facturación de tickets", "Facturación de abonados", "Abonos", "Caducidad Abonados"],
                     index = readlineSync.keyInSelect(opciones, '¿Que desea realizar? ');
                 switch (index + 1) {
                     case 1:
@@ -235,13 +235,13 @@ do {
                                 opcionCadu = readlineSync.keyInSelect(opciones, '¿Que desea realizar? ');
                             switch (opcionCadu + 1) {
                                 case 1:
-                                    let mesComprobar = readline.question('Introduce el mes a comprobar ');
-                                    let anioComprobar = readline.question('Introduce el año a comprobar ')
+                                    let mesComprobar = readline.question('Introduce el mes a comprobar, con 2 dígitos, por ejemplo 04, 24, etc: ');
+                                    let anioComprobar = readline.question('Introduce el año a comprobar: ')
                                    
-                                    if(caducidadAbono(mesComprobar, anioComprobar, listaAbonos).length == 0){
-                                        console.log("No hay ningún abono que termine en ese mes.");
+                                    if(!caducidadAbono(mesComprobar, anioComprobar, listaAbonos)){
+                                        console.log("No hay ningún abono que termine en ese mes/año.");
                                     }else{
-                                        console.log(caducidadAbono(mesComprobar, anioComprobar, listaAbonos));
+                                        listarCaducidadAbono(mesComprobar, anioComprobar, listaAbonos);
                                     }
                                     break;
                                 case 2:

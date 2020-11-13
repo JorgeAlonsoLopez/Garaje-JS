@@ -5,6 +5,7 @@ import moment from 'moment';
 import {anyadirlistadoClientes, buscarlistadoClientes,depositarVehiculo, retirarVehiculo, depositarVehiculoReserv, retirarVehiculoReserv, modificarCliente
 } from './ClienteServicio.js';
 import * as readline from 'readline-sync';
+import { truncate } from 'fs';
 
 function anyadirAbono(listadoAbonos, abono) {
     return anyadirAbonos(listadoAbonos, abono);
@@ -44,6 +45,7 @@ function consultarAnual(listadoAbonos, anio) {
 
 function caducidadAbono(mes, anio, listadoAbonos) {
     let caducadaMes = [];
+    let fin = false;
     listadoAbonos.forEach(element => {
         if (element.getFechaFinal != undefined) {
             let fechaFinal = element.getFechaFinal.format("DD/MM/YYYY HH:mm:ss").split(" ");
@@ -55,7 +57,32 @@ function caducidadAbono(mes, anio, listadoAbonos) {
             }
         }
     });
-    return caducadaMes;
+    
+    if(caducadaMes.length != 0){
+        fin = true;
+    }
+    
+    return fin;
+    
+}
+
+function listarCaducidadAbono(mes, anio, listadoAbonos){
+    let caducadaMes = [];
+    listadoAbonos.forEach(element => {
+        if (element.getFechaFinal != undefined) {
+            let fechaFinal = element.getFechaFinal.format("DD/MM/YYYY HH:mm:ss").split(" ");
+            let fechaSeparada = fechaFinal[0].split("/");
+            if (anio == fechaSeparada[2]) {
+                if (mes == fechaSeparada[1]) {
+                    caducadaMes.push(element);
+                }
+            }
+        }
+    });
+    console.log("Lista de abonos que caducan en el "+mes+"/"+anio+": ");
+        caducadaMes.forEach(element => {
+            console.log("El abono que pertenece a " + element.getCliente.getNombre + " " + element.getCliente.getApellidos + " con dni " + element.getCliente.getDni + ", creado el " + element.getFechaInicial.format("DD/MM/YYYY"));
+        });
 }
 
 function caducidadBonosProximosDias(listadoAbonos) {
@@ -122,4 +149,4 @@ function borrarAbono(listaAbonos, clienteDni, listaClientes) {
     listaAbonos.splice(listaAbonos.indexOf(abono), 1);
     listaClientes.splice(listaAbonos.indexOf(cliente), 1);
 }
-export { anyadirAbono, eliminarAbono, buscarAbonoDni, consultarAnual, caducidadAbono, caducidadBonosProximosDias, modificarAbono, borrarAbono };
+export { anyadirAbono, eliminarAbono, buscarAbonoDni, consultarAnual, listarCaducidadAbono, caducidadAbono, caducidadBonosProximosDias, modificarAbono, borrarAbono };
