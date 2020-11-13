@@ -128,9 +128,8 @@ do {
                                         console.log("Procedemos a crear un nuevo abonado");
                                         console.log("Procedemos a dar de alta al cliente");
                                         let dniCliente = readline.question("Introduzca el dni del usuario: ");
-                                        let nombreApeCliente = readline.question("Introduzca el nombre y apellido del cliente del usuario: ");
-                                        let infoNoApeCliente = nombreApeCliente.split(" ");
-                                        let apellidos = infoNoApeCliente[1] + " " + infoNoApeCliente[2];
+                                        let nombreCliente = readline.question("Introduzca el nombre del usuario: ");
+                                        let apellidos = readline.question("Introduzca los apellido del usuario: ");
                                         let tarjetaDeCredito = readline.question("Introduzca la tarjeta de crédito del usuario: ");
                                         let email = readline.question("Introduzca el email del usuario: ");
                                         let matricula = readline.question("Introduzca la matrícula del vehículo: ");
@@ -172,7 +171,7 @@ do {
                                         }
                                         if (reserva) {
                                             let vehiculoCliente = new Vehiculo(matricula);
-                                            let nuevoCliente = new Cliente(dniCliente.toUpperCase(), infoNoApeCliente[0], apellidos, tarjetaDeCredito, email, vehiculoCliente);
+                                            let nuevoCliente = new Cliente(dniCliente.toUpperCase(), nombreCliente, apellidos, tarjetaDeCredito, email, vehiculoCliente);
                                             let nuevoAbono;
                                             let readlineSync = readline,
                                                 opciones = ["Mensual->25€", "Trimestral->70€", "Semestral->130€", "Anual->200€"],
@@ -200,8 +199,7 @@ do {
                                                 anyadirlistadoClientes(clientes, nuevoCliente);
                                                 anyadirAbono(listaAbonos, nuevoAbono);
                                                 anyadirListaFactura(listaFacturas, nuevaFactura);
-                                                console.log("Su pin es el siguiente, no lo pierda: "+nuevoAbono.getPin);
-                                                console.log();
+                                                console.log("\nSu pin es el siguiente, no lo pierda: "+nuevoAbono.getPin);
                                             } else {
                                                 console.log("Cancelando operación");
                                             }
