@@ -5,10 +5,8 @@ import { Parking } from './modelo/Parking.js';
 import { Plaza } from './modelo/Plaza.js';
 import { Ticket } from './modelo/Ticket.js';
 import { anyadirListaTicket, buscarTicket, pintarTick, facturacion } from './servicios/TicketServicio.js';
-import {
-    cargarListadoTotalPlazas, buscaPlaza, listarPorTipo, contadorPlazasLibres, contadorPlazasLibresTipo,
-    darPlazasLibresTipo, ocuparPlaza, liberaPlaza
-} from './servicios/PlazaServicio.js';
+import {cargarListadoTotalPlazas, buscaPlaza, listarPorTipo, contadorPlazasLibres, contadorPlazasLibresTipo,
+    darPlazasLibresTipo, ocuparPlaza, liberaPlaza } from './servicios/PlazaServicio.js';
 import { mostrarPlazasDisponibles, estadoParking, imprimirMapa } from './servicios/ParkingServicio.js';
 import { anyadirListaFactura, buscarFact, buscarFactAnyo } from './servicios/FacturaServicio.js';
 import { anyadirlistadoClientes, buscarlistadoClientes, depositarVehiculo, retirarVehiculo, depositarVehiculoReserv, retirarVehiculoReserv, modificarCliente } from './servicios/ClienteServicio.js';
@@ -25,48 +23,56 @@ let tickets = new Array();
 let clientes = new Array();
 let parking = new Parking();
 let listaAbonos = [];
+let clientePrueba = new Cliente("abc".toUpperCase(), "Pepe", "Ramirez", "123456", "email@email.com", new Vehiculo("123"));
+let abonoPrueba = new Abono(clientePrueba, moment(), moment().add(6, "months"), 6, 130);
+let facturaPrueba = new Factura(moment(), clientePrueba, abonoPrueba.getPrecio);
+let plazaPrueba = (darPlazasLibresTipo("Turismo", parking));
+abonoPrueba.setPlaza(plazaPrueba);
+plazaPrueba.setReservado(true);
+anyadirlistadoClientes(clientes, clientePrueba);
+anyadirAbono(listaAbonos, abonoPrueba);
+anyadirListaFactura(listaFacturas,facturaPrueba);
 do {
     mostrarPlazasDisponibles(parking);
-    console.log("------------------------------------");
+    console.log("\n------------------------------------");
     var readlineSync = readline,
         opciones = ["Guardar vehículo", "Retirar Vehículo", 'Guardar Vehículo Cliente', 'Retirar Vehículo Cliente', 'Zona Administrador'],
-        index = readlineSync.keyInSelect(opciones, '¿Que desea realizar?');
+        index = readlineSync.keyInSelect(opciones, '¿Que desea realizar? ');
     switch (index + 1) {
         case 1:
-            let matriculaA = readline.question('¿Cuál es la matrícula de su vehículo?');
+            let matriculaA = readline.question('¿Cuál es la matrícula de su vehículo? ');
             var readlineSync = readline,
                 opciones = ["Turismo", "Moto", "Caravana"],
-                eleccion = readlineSync.keyInSelect(opciones, '¿Que desea realizar?');
+                eleccion = readlineSync.keyInSelect(opciones, '¿Que desea realizar? ');
             depositarVehiculo(matriculaA, eleccion + 1, tickets, parking);
             break;
         case 2:
-            let matriculaR = readline.question('¿Cuál es la matrícula de su vehículo?');
-            let nombrePlaza = readline.question('¿Cuál es el nombre de la plaza?');
+            let matriculaR = readline.question('¿Cuál es la matrícula de su vehículo? ');
+            let nombrePlaza = readline.question('¿Cuál es el nombre de la plaza? ');
             retirarVehiculo(matriculaR, nombrePlaza, parking, tickets);
             break;
         case 3:
-            let matriculaAC = readline.question('¿Cuál es la matrícula de su vehículo?');
+            let matriculaAC = readline.question('¿Cuál es la matrícula de su vehículo? ');
             let dniA = readline.question('Introduzca su dni: ');
             let pinA = readline.question('Introduzca el pin de acceso: ');
             depositarVehiculoReserv(matriculaAC, dniA, clientes, listaAbonos, pinA);
             break;
         case 4:
-            let matriculaRC = readline.question('¿Cuál es la matrícula de su vehículo?');
+            let matriculaRC = readline.question('¿Cuál es la matrícula de su vehículo? ');
             let dniR = readline.question('Introduzca su dni: ');
             let pinR = readline.question('Introduzca el pin de acceso: ');
             retirarVehiculoReserv(matriculaRC, dniR, clientes, listaAbonos, pinR);
             break;
         case 5:
-            //Zona admin
             do {
                 var readlineSync = readline,
                     opciones = ["Estado del Parking", "Facturación", "Consulta abonados", "Abonos", "Caducidad Abonados"],
-                    index = readlineSync.keyInSelect(opciones, '¿Que desea realizar?');
+                    index = readlineSync.keyInSelect(opciones, '¿Que desea realizar? ');
                 switch (index + 1) {
                     case 1:
                         var readlineSync = readline,
                             opciones = ["Plazas turismo", "Plazas motos", "Plazas caravanas"],
-                            index = readlineSync.keyInSelect(opciones, '¿Que desea consultar?');
+                            index = readlineSync.keyInSelect(opciones, '¿Que desea consultar? ');
                         if (index != -1) {
                             imprimirMapa(estadoParking(parking, index + 1));
                         } else {
@@ -100,14 +106,14 @@ do {
                         console.log("La facturación es: "+facturacion(tickets, fecha1, fecha2)+"€");
                         break;
                     case 3:
-                        //((consultarAnual(listaAbonos, 2020)));
-                        ((buscarFactAnyo(listaFacturas, 2020)));
+                        let anyoFactAbonado = readline.question('Inserte el año en el que desea buscar los abonados: ');
+                        ((buscarFactAnyo(listaFacturas, anyoFactAbonado)));
                         break;
                     case 4:
                         do {
                             var readlineSync = readline,
                                 opciones = ["Alta abonado", "Modificación abonado", "Baja abonado"],
-                                opcionAbonos = readlineSync.keyInSelect(opciones, '¿Que desea realizar?');
+                                opcionAbonos = readlineSync.keyInSelect(opciones, '¿Que desea realizar? ');
                             switch (opcionAbonos + 1) {
                                 case 1:
                                     console.log("Procedemos a crear un nuevo abonado");
@@ -121,7 +127,7 @@ do {
                                     let matricula = readline.question("Introduzca la matrícula del vehículo: ");
                                     let readlineSync = readline,
                                         opciones = ["Turismo", "Moto", "Caravana"],
-                                        opcionVehi = readlineSync.keyInSelect(opciones, '¿De que vehículo dispone?');
+                                        opcionVehi = readlineSync.keyInSelect(opciones, '¿De que vehículo dispone? ');
                                     let reserva = false;
                                     let plazaReservar;
                                     switch (opcionVehi+1) {
@@ -161,7 +167,7 @@ do {
                                         let nuevoAbono;
                                         let readlineSync = readline,
                                             opciones = ["Mensual->25€", "Trimestral->70€", "Semestral->130€", "Anual->200€"],
-                                            opcionBono = readlineSync.keyInSelect(opciones, '¿Que desea realizar?');
+                                            opcionBono = readlineSync.keyInSelect(opciones, '¿Que desea realizar? ');
                                         switch (opcionBono + 1) {
                                             case 1:
                                                 nuevoAbono = new Abono(nuevoCliente, moment(), moment().add(1, "months"), 1, 25);
@@ -182,9 +188,9 @@ do {
                                             let nuevaFactura = new Factura(moment(), nuevoCliente, nuevoAbono.getPrecio);
                                             nuevoAbono.setPlaza(plazaReservar);
                                             plazaReservar.setReservado(true);
-                                            clientes.push(nuevoCliente);
-                                            listaAbonos.push(nuevoAbono);
-                                            listaFacturas.push(nuevaFactura);
+                                            anyadirlistadoClientes(clientes, nuevoCliente);
+                                            anyadirAbono(listaAbonos, nuevoAbono);
+                                            anyadirListaFactura(listaFacturas,nuevaFactura);
                                         } else {
                                             console.log("Cancelando operación");
                                         }
@@ -195,7 +201,7 @@ do {
                                 case 2:
                                      let editar = readline,
                                             opcionesEditar = ["Cambiar Datos Abonado","Ampliar Abono"],
-                                            opt = editar.keyInSelect(opcionesEditar, '¿Que desea realizar?');
+                                            opt = editar.keyInSelect(opcionesEditar, '¿Que desea realizar? ');
                                     if(opt!=-1){
                                         let dniClienteModificar=readline.question("Introduzca el DNI del cliente: ");
                                         if(buscarAbonoDni(listaAbonos,dniClienteModificar.toUpperCase())!=undefined){
@@ -225,11 +231,11 @@ do {
                         do {
                             var readlineSync = readline,
                                 opciones = ["Caducidad de un mes", "Caducidad en los proximos diez días"],
-                                opcionCadu = readlineSync.keyInSelect(opciones, '¿Que desea realizar?');
+                                opcionCadu = readlineSync.keyInSelect(opciones, '¿Que desea realizar? ');
                             switch (opcionCadu + 1) {
                                 case 1:
-                                    let mesComprobar = readline.question('Introduce el mes a comprobar');
-                                    let anioComprobar = readline.question('Introduce el año a comprobar')
+                                    let mesComprobar = readline.question('Introduce el mes a comprobar ');
+                                    let anioComprobar = readline.question('Introduce el año a comprobar ')
                                    
                                     if(caducidadAbono(mesComprobar, anioComprobar, listaAbonos).length == 0){
                                         console.log("No hay ningún abono que termine en ese mes.");

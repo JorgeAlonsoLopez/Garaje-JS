@@ -37,20 +37,6 @@ function darPlazasLibresTipo(tipo,parking){
 
     return plaza;
 }
-/*
-function buscarPlazaPorMatricula(matricula,parking){
-    
-    let lista = cargarListadoTotalPlazas(parking);
-    let num;
-    
-    lista.forEach(element => {
-        if(element.getOcupado == false && element.getReservado == false && element.getTipo===tipo){
-            contador +=1;
-        }
-    });
-
-    return num;
-}*/
 
 function ocuparPlaza(plaza){
     plaza.setOcupado(true);

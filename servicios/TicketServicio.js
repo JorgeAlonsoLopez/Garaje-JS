@@ -21,7 +21,7 @@ function pagarTicket(nombrePlaza,parking,ticket){
     plaza = buscaPlaza(nombrePlaza,parking);
     let actual=moment();
     min=((actual-ticket.getFechaEntrada)/(60*1000)).toFixed(0);
-    console.log(min);
+    
     precio = min*plaza.getCosteMin;
     while(!correcto){
         console.log("El precio a pagar son: " + precio + "€");
@@ -29,7 +29,7 @@ function pagarTicket(nombrePlaza,parking,ticket){
         if(dinero >= precio){
             correcto = true;
             ticket.setCoste(precio);
-            console.log("El cambio es: " + (dinero - precio) + "€");
+            console.log("El cambio es: " + (dinero - precio).toFixed(2) + "€");
         }else{
             console.log("La cantidad es menor a la esperada");
         }
@@ -46,7 +46,7 @@ function facturacion(listaTickets,fecha1,fecha2){
     aux.forEach(element=>{
         total=element.getCoste+total;
     });
-    return total;
+    return (total).toFixed(2);
 }
 
 function pintarTick(tick){
@@ -56,7 +56,7 @@ function pintarTick(tick){
     console.log("Fecha y hora de estacionamiento: " + tick.getFechaEntrada.format("DD/MM/YYYY HH:mm:ss"));
     console.log("PIN: " + tick.getPin);
     if(tick.getCoste != 0){
-        console.log("Coste: " + tick.getCoste);
+        console.log("Coste: " + tick.getCoste + "€");
     }
     if(tick.getFechaSalida != undefined){
         console.log("Fecha y hora de salida: " + tick.getFechaSalida.format("DD/MM/YYYY HH:mm:ss"));

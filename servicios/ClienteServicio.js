@@ -7,6 +7,7 @@ import { buscarAbonoDni } from './AbonoServicio.js';
 import { contadorPlazasLibres, contadorPlazasLibresTipo, buscaPlaza, darPlazasLibresTipo, ocuparPlaza, liberaPlaza } from './PlazaServicio.js';
 import moment from 'moment';
 import * as readline from 'readline-sync';
+
 function depositarVehiculo(matricula, opcion, listaTick, parking) {
     let tipo = "";
     if (opcion == 1) {
