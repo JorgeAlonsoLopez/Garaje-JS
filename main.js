@@ -228,8 +228,15 @@ do {
                                         }
                                         break;
                                     case 3:
-                                        let dniClienteModificar = readline.question("Introduzca el DNI del cliente: ");
-                                        borrarAbono(listaAbonos, dniClienteModificar, clientes);
+                                        console.log("¿Está seguro de que desea eliminar a un cliente?");
+                                        let editarOpt = readline,
+                                            opcionesEditarOpt = ["Sí", "No"],
+                                            optD = editarOpt.keyInSelect(opcionesEditarOpt, '¿Está seguro? ');
+                                        if (optD == 0) {
+                                           let dniClienteModificar = readline.question("Introduzca el DNI del cliente: ");
+                                            borrarAbono(listaAbonos, dniClienteModificar, clientes); 
+                                        }
+                                        
                                         break;
                                     default:
                                         salirAbonos = true;
