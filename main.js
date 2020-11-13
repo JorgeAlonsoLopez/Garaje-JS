@@ -119,6 +119,7 @@ do {
                             break;
                         case 4:
                             do {
+                                console.log("\nMenú de gestión de abonos.");
                                 var readlineSync = readline,
                                     opciones = ["Alta abonado", "Modificación abonado", "Baja abonado"],
                                     opcionAbonos = readlineSync.keyInSelect(opciones, '¿Que desea realizar? ');
@@ -199,6 +200,8 @@ do {
                                                 anyadirlistadoClientes(clientes, nuevoCliente);
                                                 anyadirAbono(listaAbonos, nuevoAbono);
                                                 anyadirListaFactura(listaFacturas, nuevaFactura);
+                                                console.log("Su pin es el siguiente, no lo pierda: "+nuevoAbono.getPin);
+                                                console.log();
                                             } else {
                                                 console.log("Cancelando operación");
                                             }

@@ -37,9 +37,9 @@ function depositarVehiculo(matricula, opcion, listaTick, parking) {
     }
   
     if (resultado) {
-      return "Se ha finalizado el aparcado el vehículo sin problemas";
+      return "Se ha finalizado el aparcado el vehículo sin problemas. ";
     } else {
-      return "No se puede aparcar, no hay sitio.";
+      return "No se puede aparcar, no hay sitio. ";
     }
   }
   
@@ -50,9 +50,9 @@ function depositarVehiculo(matricula, opcion, listaTick, parking) {
     let pagado = false;
     
     if (tick != undefined) {
-      let pinN = readline.question("Por favor, inserte el pin.");
+      let pinN = readline.question("Por favor, inserte el pin. ");
       while (pinN != tick.getPin) {
-        pinN = readline.question("El pin no es correcto, inténtelo de nuevo.");
+        pinN = readline.question("El pin no es correcto, inténtelo de nuevo. ");
       }
   
       pagarTicket(nombrePlaza,parking,tick);

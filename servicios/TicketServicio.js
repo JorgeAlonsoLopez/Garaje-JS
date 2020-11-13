@@ -25,13 +25,13 @@ function pagarTicket(nombrePlaza,parking,ticket){
     precio = min*plaza.getCosteMin;
     while(!correcto){
         console.log("El precio a pagar son: " + precio + "€");
-        let dinero = readline.question("Inserte el dinero.");
+        let dinero = readline.question("Inserte el dinero. ");
         if(dinero >= precio){
             correcto = true;
             ticket.setCoste(precio);
             console.log("El cambio es: " + (dinero - precio).toFixed(2) + "€");
         }else{
-            console.log("La cantidad es menor a la esperada");
+            console.log("La cantidad es menor a la esperada. ");
         }
     }
 }
