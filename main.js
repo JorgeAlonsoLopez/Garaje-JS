@@ -25,6 +25,7 @@ let parking = new Parking();
 let listaAbonos = [];
 let clientePrueba = new Cliente("abc".toUpperCase(), "Pepe", "Ramirez", "123456", "email@email.com", new Vehiculo("123"));
 let abonoPrueba = new Abono(clientePrueba, moment(), moment().add(6, "months"), 6, 130);
+console.log("**pin del cliente de prueba: "+abonoPrueba.getPin);
 let facturaPrueba = new Factura(moment(), clientePrueba, abonoPrueba.getPrecio);
 let plazaPrueba = (darPlazasLibresTipo("Turismo", parking));
 abonoPrueba.setPlaza(plazaPrueba);

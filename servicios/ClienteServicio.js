@@ -68,36 +68,24 @@ function depositarVehiculo(matricula, opcion, listaTick, parking) {
     }
   }
   
-  function depositarVehiculoReserv(
-    matricula,
-    dni,
-    listadoClientes,
-    listadoAbonos,
-    pin
-  ) {
-    if (matricula ==buscarlistadoClientes(listadoClientes, dni).getVehiculo.getMatricula) {
-      console.log(buscarAbonoDni(listadoAbonos, dni));
-      if (pin == buscarAbonoDni(listadoAbonos, dni).getPin) {
-        ocuparPlaza(buscarAbonoDni(listadoAbonos, dni).getPlaza);
+  function depositarVehiculoReserv(matricula,dni,listadoClientes,listadoAbonos, pin) {
+    
+    if (matricula === buscarlistadoClientes(listadoClientes, dni.toUpperCase()).getVehiculo.getMatricula) {
+      
+      if (pin == buscarAbonoDni(listadoAbonos, dni.toUpperCase()).getPin) {
+        ocuparPlaza(buscarAbonoDni(listadoAbonos, dni.toUpperCase()).getPlaza);
         console.log("El vehículo se ha aparcado con éxito.");
         console.log("Gracias por usar nuestros servicios.");
       }
     }
   }
   
-  function retirarVehiculoReserv(
-    matricula,
-    dni,
-    listadoClientes,
-    listadoAbonos,
-    pin
+  function retirarVehiculoReserv(matricula,dni,listadoClientes,listadoAbonos,pin
   ) {
-    if (
-      matricula ==
-      buscarlistadoClientes(listadoClientes, dni).getVehiculo.getMatricula
+    if ( matricula === buscarlistadoClientes(listadoClientes, dni.toUpperCase()).getVehiculo.getMatricula
     ) {
-      if (pin == buscarAbonoDni(listadoAbonos, dni).getPin) {
-        liberaPlaza(buscarAbonoDni(listadoAbonos, dni).getPlaza);
+      if (pin == buscarAbonoDni(listadoAbonos, dni.toUpperCase()).getPin) {
+        liberaPlaza(buscarAbonoDni(listadoAbonos, dni.toUpperCase()).getPlaza);
         console.log("El vehículo se ha retirado con éxito.");
         console.log("Gracias por usar nuestros servicios.");
       }
