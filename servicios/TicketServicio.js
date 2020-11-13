@@ -26,7 +26,7 @@ function pagarTicket(nombrePlaza,parking,ticket){
         precio = min*plaza.getCosteMin;
         while(!correcto){
             console.log("El precio a pagar son: " + precio + "€");
-            let dinero = readline.question("Inserte el dinero. ");
+            let dinero = readline.question("Inserte el dinero, en euros. ");
             if(dinero >= precio){
                 correcto = true;
                 ticket.setCoste(precio);
