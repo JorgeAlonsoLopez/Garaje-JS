@@ -100,10 +100,10 @@ function depositarVehiculo(matricula, opcion, listaTick, parking) {
     return buscarlistadoClientesR(listadoClientes, dni);
   }
   function modificarCliente(cliente) {
-    let nombre = readline.question("Por favor, inserte su nombre.");
-    let apellidos = readline.question("Por favor, inserte sus apellidos.");
-    let numTarjeta = readline.question("Por favor, inserte su número de tarjeta.");
-    let email = readline.question("Por favor, inserte su email.");
+    let nombre = readline.question("Por favor, inserte su nombre: ");
+    let apellidos = readline.question("Por favor, inserte sus apellidos: ");
+    let numTarjeta = readline.question("Por favor, inserte su número de tarjeta: ");
+    let email = readline.question("Por favor, inserte su email: ");
     cliente.setNombre(nombre);
     cliente.setApellidos(apellidos);
     cliente.setNumTarjeta(numTarjeta);
