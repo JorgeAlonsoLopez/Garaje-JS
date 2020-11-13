@@ -74,7 +74,7 @@ function retirarVehiculo(matricula, nombrePlaza, parking, listaTick) {
 }
 
 function depositarVehiculoReserv(matricula, dni, listadoClientes, listadoAbonos, pin) {
-  if (buscarlistadoClientes(listadoClientes, dni.toUpperCase() == undefined)) {
+  if (buscarlistadoClientes(listadoClientes, dni.toUpperCase()) != undefined) {
     if (matricula === buscarlistadoClientes(listadoClientes, dni.toUpperCase()).getVehiculo.getMatricula) {
       if (pin == buscarAbonoDni(listadoAbonos, dni.toUpperCase()).getPin) {
         ocuparPlaza(buscarAbonoDni(listadoAbonos, dni.toUpperCase()).getPlaza);
@@ -89,7 +89,7 @@ function depositarVehiculoReserv(matricula, dni, listadoClientes, listadoAbonos,
 }
 
 function retirarVehiculoReserv(matricula, dni, listadoClientes, listadoAbonos, pin) {
-  if (buscarlistadoClientes(listadoClientes, dni.toUpperCase() == undefined)) {
+  if (buscarlistadoClientes(listadoClientes, dni.toUpperCase()) != undefined) {
     if (matricula === buscarlistadoClientes(listadoClientes, dni.toUpperCase()).getVehiculo.getMatricula) {
       if (pin == buscarAbonoDni(listadoAbonos, dni.toUpperCase()).getPin) {
         liberaPlaza(buscarAbonoDni(listadoAbonos, dni.toUpperCase()).getPlaza);
