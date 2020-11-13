@@ -19,13 +19,13 @@ function buscarFactAnyoR(lista, anyo){
     let listaFact = new Array();
     lista.forEach(element => {
         anyo = parseInt(anyo);
-        let inicio = moment([anyo,1,1]);
-        anyo = anyo+1;
-        let final = moment([anyo,1,1]);
+        let inicio = moment([anyo,0,1]);
+        let final = moment([(anyo+1),0,1]);
         if(element.getFecha.isAfter(inicio) && element.getFecha.isBefore(final)){
             listaFact.push(element);
         }
     });
+    
     return listaFact;
 }
 
