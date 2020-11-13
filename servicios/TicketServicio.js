@@ -19,21 +19,24 @@ function pagarTicket(nombrePlaza,parking,ticket){
     let min;
     let precio;
     plaza = buscaPlaza(nombrePlaza,parking);
-    let actual=moment();
-    min=((actual-ticket.getFechaEntrada)/(60*1000)).toFixed(0);
-    
-    precio = min*plaza.getCosteMin;
-    while(!correcto){
-        console.log("El precio a pagar son: " + precio + "€");
-        let dinero = readline.question("Inserte el dinero. ");
-        if(dinero >= precio){
-            correcto = true;
-            ticket.setCoste(precio);
-            console.log("El cambio es: " + (dinero - precio).toFixed(2) + "€");
-        }else{
-            console.log("La cantidad es menor a la esperada. ");
-        }
+    if(buscaPlaza(nombrePlaza,parking) != undefined){
+      let actual=moment();
+        min=((actual-ticket.getFechaEntrada)/(60*1000)).toFixed(0);
+        
+        precio = min*plaza.getCosteMin;
+        while(!correcto){
+            console.log("El precio a pagar son: " + precio + "€");
+            let dinero = readline.question("Inserte el dinero. ");
+            if(dinero >= precio){
+                correcto = true;
+                ticket.setCoste(precio);
+                console.log("El cambio es: " + (dinero - precio).toFixed(2) + "€");
+            }else{
+                console.log("La cantidad es menor a la esperada. ");
+            }
+        }  
     }
+    
 }
 function facturacion(listaTickets,fecha1,fecha2){
     let aux=[];
