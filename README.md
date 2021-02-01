@@ -1,6 +1,6 @@
 # Gestión de un parking - JS
 
-El programa se basa en la gestión de un parking.  
+Este programa de consola se basa en la gestión de un parking.  
 
 En este tenemos dos zonas, la de administrador y la de los clientes.  
 
@@ -16,3 +16,4 @@ Se ha creado un abonado para probar las funcionalidades sin necesidad de crear u
 
 Para las opciones, basta con pulsar el número correspondiente, sin necesidad de confirmar la opción (enter), Para los datos (matrícula, DNI, nombres, etc) si que hay que confirmar los datos.   
 
+Con ```npm i``` instalan las librerías necesarias y con ```npm start``` inicia la ejecución del programa.
